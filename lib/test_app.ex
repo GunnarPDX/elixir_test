@@ -38,6 +38,19 @@ defmodule TestApp do
     File.write(filename, binary)
   end
 
+  def load(filename) do
+    case File.read(filename) do
+      {:ok, binary} -> :erlang.binary_to_term(binary)
+      {:error, _reason} -> "file does not exist"
+    end
+  end
+
+  def selection(number_of_animals) do
+    TestApp.create_zoo()
+    |> TestApp.randomise()
+    |> TestApp.see_animals(number_of_animals)
+  end
+
 
 end
 
