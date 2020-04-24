@@ -16,6 +16,11 @@ defmodule TestApp do
     :world
   end
 
+  def add(a, b) do
+    a + b
+    |> IO.inspect()
+  end
+
   def create_zoo do
     ["lion", "tiger", "gorilla", "elephant", "monkey", "giraffe"]
   end
@@ -51,3 +56,41 @@ defmodule TestApp do
     |> TestApp.see_animals(number_of_animals)
   end
 end
+
+defmodule Math do
+  
+  def add(a, b) do
+    recieve do
+      senders_pid ->
+        send(senders_pid, a + b)
+    end
+  end
+
+  def double(n) do
+    spawn(Math, :add, [n,n])
+    |> send(self())
+    
+    recieve do
+      doubled ->
+        doubled
+    end
+  end
+
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
