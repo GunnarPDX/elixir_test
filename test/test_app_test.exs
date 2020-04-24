@@ -7,9 +7,7 @@ defmodule TestAppTest do
   end
 
   test "randomise" do
-    zoo = TestApp.create_zoo
+    zoo = TestApp.create_zoo()
     assert zoo != TestApp.randomise(zoo)
   end
-
-  
 end

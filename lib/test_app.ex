@@ -50,19 +50,4 @@ defmodule TestApp do
     |> TestApp.randomise()
     |> TestApp.see_animals(number_of_animals)
   end
-
-
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
